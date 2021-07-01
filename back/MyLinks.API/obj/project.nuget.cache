@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "6UVn2rpZIRJ2EnOPFf7wG+FANGq2J9oxE7FHaghicMj8G1cb5Mke3wAV5MEPJDTfCZBrXq143Kbqvu+prK/Xiw==",
+  "success": true,
+  "projectFilePath": "D:\\Projetos\\CodeFC\\Azure\\source\\codefc-my-links\\back\\MyLinks.API\\MyLinks.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tanur\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\tanur\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\tanur\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\tanur\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\tanur\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\tanur\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
