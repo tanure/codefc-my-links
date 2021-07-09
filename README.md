@@ -9,7 +9,7 @@ Este é um projeto que implementa um backend e um frontend onde o objetivo será
 
 # Design Basico
 
-![](./design/images/appdesign_v1.png)
+![](design/images/appdesign_v1.png)
 
 # Targets
 
