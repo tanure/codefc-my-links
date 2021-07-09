@@ -16,7 +16,7 @@ namespace MyLinks.API.Controllers
 
         public ResourceController(ILinkResourceRepository repository)
         {
-            _repository = repository;
+          _repository = repository;
         }
 
         [HttpGet]
@@ -28,7 +28,7 @@ namespace MyLinks.API.Controllers
         [HttpGet("{id}")]
         public ActionResult Get(Guid? id)
         {
-            return Ok(_repository.GetById(id.Value));
+            return Ok(_repository.GetById(Guid.NewGuid()));
         }
     }
 }
