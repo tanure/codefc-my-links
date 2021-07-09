@@ -7,10 +7,6 @@ Este é um projeto que implementa um backend e um frontend onde o objetivo será
 - .net 5.0
 - Visual Studio Code
 
-# Design Basico
-
-![](design/images/AppDesign_v1.png)
-
 # Targets
 
 - [x] Criação do projeto backend
