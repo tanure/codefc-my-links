@@ -23,3 +23,11 @@ Este é um projeto que implementa um backend e um frontend onde o objetivo será
 - [ ] CI/CD
 
 
+## Criação do backend
+
+Para criar um backend digite o seguinte comando no terminal:
+
+```bash
+dotnet new webapi --name MyLinks.API 
+```
+
