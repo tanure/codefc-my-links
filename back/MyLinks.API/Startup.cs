@@ -32,7 +32,7 @@ namespace MyLinks.API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Code FC - MyLinks", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Code FC - My Links", Version = "v1" });
 
             });
         }
