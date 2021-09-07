@@ -8,7 +8,7 @@ on:
 
 env:
   APP_SERVICE_NAME: codefc-mylinks
-  OUTPUT_ARTIFACT: 'back/MyLinks.API'
+  OUTPUT_ARTIFACT: '..'
 
 jobs:
   build:
@@ -22,19 +22,19 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: dotnet build and publish
-      working-directory: '${{ env.OUTPUT_ARTIFACT }}' 
+      working-directory: 'back/MyLinks.API' 
       run: |
         dotnet restore
         dotnet build --configuration Release
-        dotnet publish -c Release -o '${{ env.OUTPUT_ARTIFACT }}/mylink' 
+        dotnet publish -c Release -o '${{ env.GITHUB_WORKSPACE }}/back/drop' 
       
     #- name: Publish
-    #  run: dotnet publish -c Release -o '${{env.OUTPUT_ARTIFACT}}/drop' --no-restore    
+    #  run: dotnet publish -c Release -o '${{env.GITHUB_WORKSPACE}}/drop' --no-restore    
     #  working-directory: back/MyLinks.API/
     
-    - name: 'Publicação no App Services'
-      uses: azure/webapps-deploy@v2
+    - name: 'Publicação no App Services'    
+      uses: azure/webapps-deploy@v2      
       with:
         app-name: '${{env.APP_SERVICE_NAME}}'
         publish-profile: '${{secrets.MY_LINKS_PUBLISH_PROFILE}}'
-        package: '${{ env.OUTPUT_ARTIFACT }}/mylink'
+        package: '${{ env.GITHUB_WORKSPACE }}/back/drop'
