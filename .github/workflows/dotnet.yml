@@ -32,7 +32,7 @@ jobs:
       
     - name: Publish
       run: dotnet publish -c Release -o '${{env.OUTPUT_ARTIFACT}}/drop' --no-restore    
-      working-directory: back/
+      working-directory: back/MyLinks.API/
     
     - name: 'Publicação no App Services'
       uses: azure/webapps-deploy@v2
