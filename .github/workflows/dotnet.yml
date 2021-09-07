@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  APP_SERVICE_NAME: codefc-mylinks
+  OUTPUT_ARTIFACT: '.'
+
 jobs:
   build:
 
@@ -25,3 +29,14 @@ jobs:
     - name: Build
       run: dotnet build --no-restore    
       working-directory: back/
+      
+    - name: Publish
+      run: dotnet publish -c Release -o '${{env.OUTPUT_ARTIFACT}}/drop' --no-restore    
+      working-directory: back/
+    
+    - name: 'Publicação no App Services'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: '${{env.APP_SERVICE_NAME}}'
+        publish-profile: '${{secrets.MY_LINKS_PUBLISH_PROFILE}}'
+        package: '${{env.OUTPUT_ARTIFACT}}/drop'
