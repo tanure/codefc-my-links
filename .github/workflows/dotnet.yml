@@ -11,7 +11,7 @@ env:
   OUTPUT_ARTIFACT: '..'
 
 jobs:
-  "Continuos Intetration":
+  CI:
 
     runs-on: ubuntu-latest
 
@@ -32,7 +32,7 @@ jobs:
     #  run: dotnet publish -c Release -o '${{env.GITHUB_WORKSPACE}}/drop' --no-restore    
     #  working-directory: back/MyLinks.API/
   
-  "Continuous Deployment":
+  CD:
     runs-on: ubuntu-latest
     steps:
     - name: 'Publicação no App Services'    
