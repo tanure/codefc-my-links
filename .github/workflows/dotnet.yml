@@ -26,7 +26,7 @@ jobs:
       run: |
         dotnet restore
         dotnet build --configuration Release
-        dotnet publish -c Release -o '${{ env.OUTPUT_ARTIFACT }}/drop' 
+        dotnet publish -c Release -o '${{ env.OUTPUT_ARTIFACT }}/mylink' 
       
     #- name: Publish
     #  run: dotnet publish -c Release -o '${{env.OUTPUT_ARTIFACT}}/drop' --no-restore    
@@ -37,4 +37,4 @@ jobs:
       with:
         app-name: '${{env.APP_SERVICE_NAME}}'
         publish-profile: '${{secrets.MY_LINKS_PUBLISH_PROFILE}}'
-        package: '${{env.OUTPUT_ARTIFACT}}/drop'
+        package: '${{ env.OUTPUT_ARTIFACT }}/mylink'
