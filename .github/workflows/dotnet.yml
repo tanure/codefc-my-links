@@ -12,7 +12,7 @@ env:
 
 jobs:
   CI:
-
+    name: "Continuous Integration"
     runs-on: ubuntu-latest
 
     steps:
@@ -27,14 +27,24 @@ jobs:
         dotnet restore
         dotnet build --configuration Release
         dotnet publish -c Release -o '${{ github.workspace }}/drop' 
-      
-    #- name: Publish
-    #  run: dotnet publish -c Release -o '${{env.GITHUB_WORKSPACE}}/drop' --no-restore    
-    #  working-directory: back/MyLinks.API/
-  
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        # Artifact name
+        name: d_package
+        path: '${{ github.workspace }}/drop'
+    
   CD:
+    name: "Continuous Delivery"
+    needs: CI
     runs-on: ubuntu-latest
     steps:
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.0.10
+      with:        
+        name: d_package        
+        path: '${{ github.workspace }}/drop'
+        
     - name: 'Publicação no App Services'    
       uses: azure/webapps-deploy@v2      
       with:
