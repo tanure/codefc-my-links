@@ -21,18 +21,16 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-        
-    - name: Restore dependencies
-      run: dotnet restore
-      working-directory: back/
-      
-    - name: Build
-      run: dotnet build --no-restore    
-      working-directory: back/
-      
-    - name: Publish
-      run: dotnet publish -c Release -o '${{env.OUTPUT_ARTIFACT}}/drop' --no-restore    
+    - name: dotnet build and publish
       working-directory: back/MyLinks.API/
+      run: |
+        dotnet restore
+        dotnet build --configuration Release
+        dotnet publish -c Release -o '${{ env.OUTPUT_ARTIFACT }}/drop' 
+      
+    #- name: Publish
+    #  run: dotnet publish -c Release -o '${{env.OUTPUT_ARTIFACT}}/drop' --no-restore    
+    #  working-directory: back/MyLinks.API/
     
     - name: 'Publicação no App Services'
       uses: azure/webapps-deploy@v2
