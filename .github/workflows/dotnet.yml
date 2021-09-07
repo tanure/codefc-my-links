@@ -8,7 +8,7 @@ on:
 
 env:
   APP_SERVICE_NAME: codefc-mylinks
-  OUTPUT_ARTIFACT: '/back/MyLinks.API'
+  OUTPUT_ARTIFACT: 'back/MyLinks.API'
 
 jobs:
   build:
