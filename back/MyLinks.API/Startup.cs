@@ -6,13 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using MyLinks.API.Repository;
 using MyLinks.Domain.Repository;
+using MyLinks.Repository;
+using MyLinks.Repository.Context;
 
 namespace MyLinks.API
 {
@@ -28,6 +30,11 @@ namespace MyLinks.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MyLinkDbContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("MyLinkDbConnection"),
+                    x => x.MigrationsAssembly("MyLinks.Repository"));
+            });
+
             services.AddScoped<ILinkResourceRepository, LinkResourceRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
