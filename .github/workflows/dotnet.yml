@@ -60,6 +60,13 @@ jobs:
       uses: Azure/appservice-settings@v1
       with:
         app-name: '${{env.APP_SERVICE_NAME}}'
-        app-settings-json: '${{secrets.APP_SETTINGS}}'
+        app-settings-json: |
+          [
+            {
+              "name": "WEBSITE_WEBDEPLOY_USE_SCM",
+              "value": "true",
+              "slotSetting": false
+            }
+          ]
         
         
