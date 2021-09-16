@@ -64,7 +64,7 @@ jobs:
           [
             {
               "name": "ConnectionStrings__MyLinkDbConnection",
-              "value": "'${{secrets.DB_CONNECTION_STRING}}'",
+              "value": "${{secrets.DB_CONNECTION_STRING}}",
               "slotSetting": false
             }
           ]
