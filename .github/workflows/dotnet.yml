@@ -40,7 +40,7 @@ jobs:
           dotnet tool install dotnet-ef --version 5.0.8
     
     - name: Generate scripts
-      run: dotnet ef migrations script --output ${{github.workspace}}/sql/sql-script.sql --startup-project '../MyLinks.API/MyLinks.API.csproj' --idempotent --context ApplicationDbContext
+      run: dotnet ef migrations script --output ${{github.workspace}}/sql/sql-script.sql --startup-project '../MyLinks.API/MyLinks.API.csproj' --idempotent --context MyLinkDbContext
       working-directory: 'back/MyLinks.Repository'
       
       
