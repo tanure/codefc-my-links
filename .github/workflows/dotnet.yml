@@ -59,7 +59,7 @@ jobs:
     - name: App Service DB Configuration
       uses: Azure/appservice-settings@v1
       with:
-        app-name: '{{env.APP_SERVICE_NAME}}'
+        app-name: '${{env.APP_SERVICE_NAME}}'
         app-settings-json: |
           [ 
             {
