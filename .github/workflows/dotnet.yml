@@ -63,8 +63,8 @@ jobs:
         app-settings-json: |
           [
             {
-              "name": "WEBSITE_WEBDEPLOY_USE_SCM",
-              "value": "true",
+              "name": "ConnectionStrings__MyLinkDbConnection",
+              "value": "'${{secrets.DB_CONNECTION_STRING}}'",
               "slotSetting": false
             }
           ]
