@@ -51,7 +51,7 @@ jobs:
     - name: Azure SQL Deploy
       uses: Azure/sql-action@v1
       with:        
-        server-name: ${{DB_SERVER_NAME}}       
+        server-name: ${{secrets.DB_SERVER_NAME}}       
         connection-string: ${{ secrets.DB_CONNECTION_STRING }}        
         sql-file: ${{github.workspace}}/sql/sql-script.sql
     
