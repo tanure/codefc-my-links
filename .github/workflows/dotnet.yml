@@ -60,13 +60,6 @@ jobs:
       uses: Azure/appservice-settings@v1
       with:
         app-name: '${{env.APP_SERVICE_NAME}}'
-        app-settings-json: |
-          [ 
-            {
-              "name": "ConnectionStrings__MyLinkDbConnection",
-              "value: "${{secrets.DB_CONNECTION_STRING}}",
-              "slotSetting": false
-            }
-          ]
+        app-settings-json: '${{secrets.APP_SETTINGS}}'
         
         
