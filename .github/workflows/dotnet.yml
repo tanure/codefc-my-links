@@ -34,6 +34,11 @@ jobs:
       run: dotnet publish -c Release -o '${{ github.workspace }}/drop'
       working-directory: 'back/MyLinks.API'
     
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
     - name: Install EF Tool
       run: |
           dotnet new tool-manifest
@@ -48,7 +53,7 @@ jobs:
       uses: Azure/webapps-deploy@v2
       with:        
         app-name: '${{env.APP_SERVICE_NAME}}'        
-        publish-profile: '${{ secrets.MY_LINK_PUBLISH_PROFILE }}'
+        #publish-profile: '${{ secrets.MY_LINK_PUBLISH_PROFILE }}'
         package: '${{ github.workspace }}/drop'
     
     - name: App Service DB Configuration
