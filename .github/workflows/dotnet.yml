@@ -48,7 +48,13 @@ jobs:
       run: dotnet ef migrations script --output ${{github.workspace}}/sql/sql-script.sql --startup-project '../MyLinks.API/MyLinks.API.csproj' --idempotent --context MyLinkDbContext
       working-directory: 'back/MyLinks.Repository'
       
-      
+    - name: Azure SQL Deploy
+      uses: Azure/sql-action@v1
+      with:        
+        server-name: ${{DB_SERVER_NAME}}       
+        connection-string: ${{ secrets.DB_CONNECTION_STRING }}        
+        sql-file: ${{github.workspace}}/sql/sql-script.sql
+    
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v2
       with:        
