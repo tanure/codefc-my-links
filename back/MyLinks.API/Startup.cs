@@ -35,6 +35,12 @@ namespace MyLinks.API
                     x => x.MigrationsAssembly("MyLinks.Repository"));
             });
 
+            services.AddCors(options => {
+                options.AddPolicy("general", builder => {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+            });
+
             services.AddScoped<ILinkResourceRepository, LinkResourceRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -51,6 +57,7 @@ namespace MyLinks.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors("general");
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
@@ -58,6 +65,8 @@ namespace MyLinks.API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyLinks.API v1");
                 c.RoutePrefix = string.Empty;
             });
+
+            
 
             app.UseHttpsRedirection();
 
