@@ -3,9 +3,7 @@ name: .NET
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+ 
 env:
   APP_SERVICE_NAME: codefc-mylinks
 
